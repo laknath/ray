@@ -859,6 +859,17 @@ class MultiAgentEpisode:
                             self._hanging_extra_model_outputs_end[agent_id]
                         ),
                     )
+                # if agent_id == "level_0":
+                #     # import pdb; pdb.set_trace()
+                #     import numpy as np
+                #     print("self::", "len", len(sa_episode.observations), sa_episode.observations[0], sa_episode.observations[-1])
+                #     print("other::", "len", len(other.agent_episodes[agent_id].observations),
+                #           other.agent_episodes[agent_id].observations[0], other.agent_episodes[agent_id].observations[-1])
+                #     print("====")
+                #     # np.testing.assert_equal(
+                #     #     sa_episode.observations[-1], other.agent_episodes[agent_id].observations[0],
+                #     # )
+
                 sa_episode.concat_episode(other.agent_episodes[agent_id])
                 # Override `self`'s hanging (end) values with `other`'s hanging (end).
                 if agent_id in other._hanging_actions_end:

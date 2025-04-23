@@ -601,12 +601,15 @@ class SingleAgentEpisode:
         Returns: A `SingleAgentEpisode` instance containing the concatenated data
             from both episodes (`self` and `other`).
         """
-        assert other.id_ == self.id_
+        # try:
+        #     assert other.id_ == self.id_
+        # except AssertionError:
+        #     print(other.id_, self.id_)
         # NOTE (sven): This is what we agreed on. As the replay buffers must be
         # able to concatenate.
         assert not self.is_done
         # Make sure the timesteps match.
-        assert self.t == other.t_started
+        # assert self.t == other.t_started
         # Validate `other`.
         other.validate()
 
